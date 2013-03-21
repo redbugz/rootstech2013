@@ -41,13 +41,16 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Real Time Web Applications</h1>
-					<h2>With Node.js</h2>
-					<h4>Logan Allred &amp; Joel Thornton</h4>
+					<h2>Real Time Web Applications</h2>
+					<h3>With Node.js</h3>
+          <br>
+					<p>Logan Allred &amp; Joel Thornton</p>
+					<br>
 					<br>
           <!--<h6>Connect your Wifi to &nbsp;<code>&nbsp;realtimerootstech2013 </code> (no password)</h6>-->
-          <h6>Go to <code style="font-size: 36px;"><a href="http://rtslides-redbugz.dotcloud.com/demo">http://tinyurl.com/rtslides</a></code>
-            </h6><h6>on your phone, tablet, or laptop</h6>
+          <h6>Go to
+            <div><code class="large"><a href="http://rtslides-redbugz.dotcloud.com/demo">http://tinyurl.com/rtslides</a></code></div>
+            on your phone, tablet, or laptop</h6>
 				</section>
 				<section>
 					<h3>Presenters</h3>
@@ -86,7 +89,7 @@
 				</section>
 
 				<section>
-					<h1>Why is it Cool?</h1>
+					<h2>Why is it Cool?</h2>
 					<ul>
 						<li>Live Fresh Data</li>
 						<li>Immediate Feedback</li>
@@ -96,7 +99,7 @@
 				</section>
 
 				<section>
-					<h1>Good Candidates</h1>
+					<h2>Good Candidates</h2>
 					<ul>
 						<li>Real-Time Communication, Chat, Instant Feedback</li>
 						<li>Dashboards, Live Monitoring Diagnostics and Statistics</li>
@@ -107,7 +110,7 @@
 					</ul>
 				</section>
         <section>
-          <h1>How does it work?</h1>
+          <h2>How does it work?</h2>
           <ul>
             <li>Multiple techniques</li>
             <li>
@@ -125,90 +128,82 @@
           </ul>
         </section>
 				<section>
-					<section>
 						<h2>Real-Time Samples</h2>
-            <div>
-              <img width="400" height="400" src="img/dashboard.png" alt="ESPN GAMEDAY" style="-webkit-transform: rotate(360deg);float:right;">
-              <img width="400" height="400" src="img/gamecast.png" alt="ESPN GAMEDAY" style="-webkit-transform: rotate(360deg);float:right;">
-            </div>
-						<!-- <a href="#/6/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a> -->
-					</section>
-          <section>
-						<h2>Real-Time Samples</h2>
-						<p>
-							Real Time applications <a href="#/6/1">Demos</a>.
+            <section class="image">
+              <img height="400" src="img/dashboard.png" alt="Ducksbaord dashboard" >
+            </section>
+            <section>
+              <div class="image">
+              <img height="400" src="img/gamecast.png" alt="ESPN Gamecast">
 
-						</p>
-            <div>
-              <img width="400" height="400" src="img/wordsquared.png" alt="WordSquared" style="-webkit-transform: rotate(360deg);float:right;">
-              <img width="400" height="400" src="img/browserquest.png" alt="BrowserQuest" style="-webkit-transform: rotate(360deg);float:right;">
-            </div>
-						<!-- <a href="#/6/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a> -->
-					</section>
-					<section>
-						<h3><a href='http://wordsquared.com'>http://wordsquared.com</a></h3>
-						<h3><a href='http://typewith.me/p/rootstech2013'>http://typewith.me/p/rootstech2013</a></h3>
-						<h3><a href='http://docs.google.com'>docs.google.com</a></h3>
-						<h3><a href='http://demo.kaazing.com/livefeed/'>http://demo.kaazing.com/livefeed/</a></h3>
-						<h3><a href='http://pusher.com/showcase'>pusher.com</a></h3>
-						<h3><a href='http://sports.espn.go.com/nfl/gamecast'>http://sports.espn.go.com/nfl/gamecast</a></h3>
-						<h3><a href='http://browserquest.mozilla.org'>browserquest.mozilla.org</a></h3>
-					</section>
+              </div>
+            </section>
+            <section>
+              <img height="400" src="img/wordsquared.png" alt="WordSquared">
+            </section>
+            <section>
+              <img height="400" src="img/browserquest.png" alt="BrowserQuest">
+            </section>
+          <section>
+            <div><a href='http://balloons.io/'>http://balloons.io/</a></div>
+						<div><a href='http://wordsquared.com'>http://wordsquared.com/</a></div>
+						<div><a href='http://browserquest.mozilla.org'>http://browserquest.mozilla.org/</a></div>
+						<div><a href='http://pusher.com/showcase'>http://pusher.com/</a></div>
+						<div><a href='http://demo.kaazing.com/livefeed/'>http://demo.kaazing.com/livefeed/</a></div>
+						<div><a href='http://sports.espn.go.com/nfl/gamecast'>http://sports.espn.go.com/nfl/gamecast</a></div>
+						<div><a href='http://primarypad.com/'>http://primarypad.com/</a></div>
+						<div><a href='http://drive.google.com'>http://drive.google.com/</a></div>
+          </section>
           <section>
             <h3><a href='http://lab.hakim.se/reveal-js/'>These slides (Reveal.js)</a></h3>
-            <h3><a href='http://balloons.io/'>Balloons.io</a></h3>
           </section>
         </section>
 
- 				<section> <h2> Let's Build a Real-Time web app </h2>
-         <section>
-           <ul>
-             <li>Simple Chat with Socket.IO
-               <ul>
-                 <li> create project(e.g http://github.com/thorntonjn/simple_chat.git)</li>
-                 <li> mkdir simple_chat;mkdir simple_chat/bin;cd simple_chat</li>
-                 <li> create package.json </li>
-                 <li> create bin/index.html </li>
-                 <li> create simple_chat.js </li>
-               </ul>
-             </li>
-           </ul>
-         </section>
+ 				<section>
+           <h2> Let's Build a Real-Time web app </h2>
+           <section>
+             <ul>
+               <li>Simple Chat with Socket.IO
+                 <ul>
+                   <li> create project(e.g http://github.com/thorntonjn/simple_chat.git)</li>
+                   <li> mkdir simple_chat;mkdir simple_chat/bin;cd simple_chat</li>
+                   <li> create package.json </li>
+                   <li> create bin/index.html </li>
+                   <li> create simple_chat.js </li>
+                 </ul>
+               </li>
+             </ul>
+           </section>
  					<section>
- 					<ul><li>Client Side</li>
-	 				<li><pre><code contenteditable> 
-$(document).ready(function(){
-  now.receiveMessage = function(name, message){
-    $("#messages").append("
-" + name + ": " + message);
-  }
-  
-  $("#send-button").click(function(){
-    now.distributeMessage($("#text-input").val());
-    $("#text-input").val("");
+ 					<ul>
+            <li>Client Side</li>
+            <li>
+<pre>
+<code>
+  &lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+  console.log(data);
+  socket.emit('my other event', { my: 'data' });
   });
-  
-
-  now.name = prompt("What's your name?", "");
-
-});
- 					</code></pre>
+  &lt;/script&gt;</code></pre>
  				</li>
 				</ul> 
 			</section>
  				
 				<section> 
  					<ul><li>Server Side</li>
-	 				<li><pre><code contenteditable> 
-everyone.now.distributeMessage = 
-	function(message) {
-  		everyone.now.receiveMessage(this.now.name, message);
-	};
- 					</code></pre>
+	 				<li><pre class="javascript"><code contenteditable>
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
+           </code></pre>
  				</li>
 				</ul> 
  				</section>
@@ -219,7 +214,7 @@ everyone.now.distributeMessage =
                  <li>sudo easy_install pip && sudo pip install dotcloud</li>
                  <li>dotcloud setup</li>
                  <li>dotcloud create {your-app-name}</li>
-                 <li>create dotcloud.yml</li>
+                 <li>create a dotcloud.yml</li>
                  <li>dotcloud push</li>
                </ul>
                </li>
@@ -227,104 +222,93 @@ everyone.now.distributeMessage =
            </section>
          </section>
 				<section>
-					<h2> Tools For Real-Time Apps</h2>
+					<h2> Tools </h2>
 					<section>
-					<ul>
-						<li><h3>WebSocket Protocol</h3></li>
-							<ul>
-						<li><h3>Socket.IO / SockJS</h3></li>
-							</ul>
-						<li><h3>Node.js Real-Time Development Frameworks</h3></li>
-							<ul>
-						<li><h3>Now.js </h3></li>
-						<li><h3>Derby.js </h3></li>
-            <li><h3>SocketStream.js </h3></li>
-						<li><h3>Meteor </h3></li>
-					</ul>
-
-					</ul>
+					  <ul>
+              <li><h3>WebSocket Protocol</h3></li>
+                <ul>
+                  <li>Socket.IO / SockJS</li>
+                </ul>
+              <p>&nbsp;</p>
+              <li><h3>Node.js Real-Time Development Frameworks</h3></li>
+              <ul>
+                <li>shoe / dnode </li>
+                <li>Sails.js </li>
+                <li>SocketStream </li>
+                <li>Derby </li>
+                <li>Meteor </li>
+              </ul>
+  					</ul>
 					</section>
 					<section>
-						<h1>SOCKET.IO / SOCKJS</h1>
-						<ul>
-							<li><h3>Implementation of Websocket Protocol</h3></li>
-							<li><h3>Falls back to comet protocols</h3></li>
-							<li><h3>Provides Client and Server Implementations</h3></li>
+						<h1>Socket.IO / SockJS</h1>
+						<ul class="large">
+							<li>Implementation of WebSocket Protocol</li>
+							<li>Falls back to Comet protocols</li>
+							<li>Provides Client and Server Implementations</li>
 						</ul>
 					</section>
           <section>
             <h1>Node.js</h1>
             <ul>
-              <li><h3>Asynchronous Event Driven Request Model</h3></li>
-              <li><h3>Server Side Javascript</h3></li>
-              <li><h3>More Consistent Client-Server Synchronization</h3></li>
-              <li><h3>NPM</h3></li>
-              <li><h3>Easier & Faster Build & Deployment</h3></li>
+              <li>Asynchronous Event Driven Request Model</li>
+              <li>Server Side Javascript</li>
+              <li>More Consistent Client-Server Synchronization</li>
+              <li>NPM</li>
+              <li>Easier & Faster Build & Deployment</li>
             </ul>
-          </section>
-					<section>
-						<h1>Derby.js</h1>
-						<ul> 
-							<li><h3>Full Stack Application Framework</h3></li>
-							<li><h3>Advanced Model Synching and Conflict Resolution With Racer</h3>
-							</li>
-							<li><h3>Integrates With other Frameworks</h3></li>
-							<li><h3>Modularity Provides Flexibility</h3></li>
-						</ul>
-					</section>
-          <section>
-            <h2>Presidents Match - GAME</h2>
-            <div>
-              <img width="214" height="128" src="img/latemple.png" alt="Logan wins temple match" style="-webkit-transform: rotate(360deg);float:right;">
-              <img width="214" height="128" src="img/success.jpg" alt="success" style="-webkit-transform: rotate(360deg);float:right;">
-              <img width="214" height="128" src="img/error.jpeg" alt="error" style="-webkit-transform: rotate(360deg);float:right;">
-            </div>
-            <!-- <a href="#/6/1" class="image">
-                    <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                  </a> -->
           </section>
           <section>
             <h1>SocketStream</h1>
             <ul>
-              <li><h3>Simple Modular Framework</h3></li>
-              <li><h3>Dedicated to Real-Time Single-page Apps</h3></li>
-              <li><h3>Designed to Integrate Easily With Other Modules</h3></li>
-            </ul>
-          </section>
-          <section>
-            <h1>Meteor</h1>
-            <ul>
-              <li><h3>Full Stack Application Framework</h3></li>
-              <li><h3>Includes Deployment and Hosting</h3></li>
-              <li><h3>Tightly Integrated - Walled Garden</h3></li>
-              <li><h3>Model synchronization &amp; pub/sub</h3></li>
-              <li><h3>Opinionated</h3></li>
-              <li><h3>Focus on Developer Productivity</h3></li>
+              <li>Simple Modular Framework</li>
+              <li>Dedicated to Real-Time Single-page Apps</li>
+              <li>Designed to Integrate Easily With Other Modules</li>
             </ul>
           </section>
           <section>
             <h1>Sails.js</h1>
             <ul>
-              <li><h3>Brand new</h3></li>
-              <li><h3>Data-driven</h3></li>
-              <li><h3>Patterned after Rails Active Record</h3></li>
-              <li><h3>Provides built-in JSON API without code</h3></li>
-              <li><h3>Automatically sends websocket messages on any change to Model</h3></li>
-              <li><h3>Allows your websocket messages to use same middleware as the rest of you application</h3></li>
+              <li>Brand new</li>
+              <li>Data-driven</li>
+              <li>Patterned after Rails Active Record</li>
+              <li>Provides built-in JSON API without code</li>
+              <li>Automatically sends WebSocket messages on any change to Model</li>
+              <li>Allows your WebSocket messages to use same middleware as the rest of you application</li>
             </ul>
           </section>
-
+          <section>
+						<h1>Derby</h1>
+						<ul> 
+							<li>Full Stack Application Framework</li>
+							<li>Advanced Model Synching and Conflict Resolution With Racer
+							</li>
+							<li>Integrates With other Frameworks</li>
+							<li>Modularity Provides Flexibility</li>
+						</ul>
+					</section>
+          <section>
+            <h1>Meteor</h1>
+            <ul>
+              <li>Full Stack Application Framework</li>
+              <li>Includes Deployment and Hosting</li>
+              <li>Tightly Integrated - Walled Garden</li>
+              <li>Model synchronization &amp; pub/sub</li>
+              <li>Opinionated</li>
+              <li>Focus on Developer Productivity</li>
+            </ul>
+          </section>
         </section>
 
 				<section>
 					<section>
 					<h2>Coding Example</h2>
 					<ul> 
-						<li><h3>Frameworks and TOOLS</h3></li>
-						<li><h3>Server Code</h3></li>
-						<li><h3>Client Code</h3></li>
-						<li><h3>Testing</h3></li>
-						<li><h3>Build And Deploy</h3></li>
+						<li>Frameworks and TOOLS</li>
+						<li>Server Code</li>
+						<li>Client Code</li>
+						<li>Testing</li>
+						<li>Build And Deploy</li>
 					</ul>
 					</section>
 					<section>
@@ -345,7 +329,7 @@ everyone.now.distributeMessage =
 					</section>
 					<section>
 						<h2>Server Code</h2>
-					<pre><code contenteditable>
+					<pre class="javascript"><code contenteditable>
 function replacemeWithRealCode( selector ) {
   if( supports3DTransforms ) {
     
@@ -364,7 +348,7 @@ function replacemeWithRealCode( selector ) {
 					</section>
 					<section>
 						<h2>Client Code</h2>
-					<pre><code contenteditable>
+					<pre class="javascript"><code contenteditable>
 function replacemeWithRealCode( selector ) {
   if( supports3DTransforms ) {
     
@@ -382,7 +366,7 @@ function replacemeWithRealCode( selector ) {
 					</code></pre>					</section>
 					<section>
 						<h2>Test</h2>
-					<pre><code contenteditable>
+					<pre class="bash"><code contenteditable>
 npm install -replace with real commands
 node server.js
 					</code></pre>					</section>
@@ -401,7 +385,7 @@ git push heroku replace with real commands
 					<br>
 					<br>
 					<br>
-					<h3><a href="http://github.com/redbugz/rootstech2013/">http://github.com/redbugz/rootstech2013/</a></h3>
+					<p class="large"><a href="http://github.com/redbugz/rootstech2013/">http://github.com/redbugz/rootstech2013/</a></p>
 					<br>
 					<br>
 					<p>

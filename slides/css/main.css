@@ -235,6 +235,11 @@ body {
 	vertical-align: top;
 }
 
+.reveal .large {
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
 
 /*********************************************
  * CONTROLS
