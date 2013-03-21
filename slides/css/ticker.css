@@ -1,0 +1,31 @@
+/*********************************************
+ * News Ticker
+ *********************************************/
+
+.reveal .ticker {
+  position: fixed;
+  bottom: 12px;
+  left: 50px;
+  right: 100px;
+  font-size: 30px;
+}
+
+.reveal .ticker .author {
+  font-family: 'League Gothic', Impact, sans-serif;
+  background-color: maroon;
+  opacity: 0.6;
+  padding: 0 10px 0 3px;
+  float: left;
+}
+
+.reveal .ticker .chat-message {
+  background-color: white;
+  opacity: 0.6;
+  float: left;
+  color: #151515;
+  padding: 0 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 85%;
+  overflow: hidden;
+}

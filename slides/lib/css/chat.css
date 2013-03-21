@@ -1,0 +1,44 @@
+#demo {
+  border: 1px solid #ccc;
+  text-align: left;
+  margin: 10px auto;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#demo #myMessage,
+#demo #chatlog {
+  border: none;
+  -webkit-box-shadow: inset 0 0 2px #777;
+  box-shadow: inset 0 0 2px #777;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#demo #myMessage {
+  width: 85%;
+  padding: 5px;
+}
+#demo #chatlog {
+  /*width: 700px;*/
+  background-color: #fff;
+  margin: 5px 0;
+}
+#demo #chatlog p {
+  font-size: 0.9em;
+  color: #000a68;
+  padding: 3px 9px;
+  margin: 0;
+}
+#demo #chatlog p:first-child {
+  padding-top: 9px;
+}
+#demo #chatlog p:last-child {
+  padding-bottom: 9px;
+}
+#demo #chatlog span.time {
+  color: #666;
+  float: right;
+  width: 70px;
+  text-align: right;
+  font-size: 0.7em;
+}

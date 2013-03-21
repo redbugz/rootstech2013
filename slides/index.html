@@ -1,0 +1,608 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/ticker.css">
+		<link rel="stylesheet" href="css/theme/default.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Real Time Web Applications</h1>
+					<h2>With Node.js</h2>
+					<h4>Logan Allred &amp; Joel Thornton</h4>
+					<br>
+          <!--<h6>Connect your Wifi to &nbsp;<code>&nbsp;realtimerootstech2013 </code> (no password)</h6>-->
+          <h6>Go to <code style="font-size: 36px;"><a href="http://rtslides-redbugz.dotcloud.com/demo">http://tinyurl.com/rtslides</a></code>
+            </h6><h6>on your phone, tablet, or laptop</h6>
+				</section>
+				<section>
+					<h3>Presenters</h3>
+					<br><br>
+					<p>Logan Allred</p>
+					<p>
+						<i><small>Front End Developer, FamilySearch
+							<br> <a href="#">allredlt@familysearch.org</a></small></i>
+					</p>
+					<br>
+					<p>Joel Thornton</p>
+					<p>
+						<i><small>Front End Developer, FamilySearch<br>
+							<a href="#">thorntonjn@familysearch.org</a></small></i>
+					</p>
+				</section>
+				<section>
+					<h2>Topics Covered</h2>
+					<ul>
+						<li>What are Real-Time Apps?</li>
+						<li>Some Fun Demos</li>
+						<li>Getting Started</li>
+						<li>Tools Overview</li>
+						<li>Add real-time features to your app!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What Are Real-Time Web Applications?</h2>
+					<ul>
+						<li>Persistent Bi-Directional Connection</li>
+						<li>Shared Event Notification</li>
+						<li>Continuous Communication</li>
+						<li>Multiple Data Sources/Event Streams</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Why is it Cool?</h1>
+					<ul>
+						<li>Live Fresh Data</li>
+						<li>Immediate Feedback</li>
+						<li>Minimal Connection Overhead</li>						
+						<li>Interactive and Engaging</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Good Candidates</h1>
+					<ul>
+						<li>Real-Time Communication, Chat, Instant Feedback</li>
+						<li>Dashboards, Live Monitoring Diagnostics and Statistics</li>
+						<li>Search, Filtering, Auto-Complete</li>
+						<li>Social Applications - Facebook's Ticker and Twitter</li>
+						<li>Multiplayer Games</li>
+						<li>Collaborative Sharing Applications</li>
+					</ul>
+				</section>
+        <section>
+          <h1>How does it work?</h1>
+          <ul>
+            <li>Multiple techniques</li>
+            <li>
+              <ul>
+                <li>Ajax Push</li>
+                <li>Reverse Ajax</li>
+                <li>Two-way-web</li>
+                <li>HTTP Streaming</li>
+                <li>HTTP server push</li>
+                <li>Long-held HTTP request</li>
+                <li>Long Polling</li>
+                <li>Web Sockets</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+				<section>
+					<section>
+						<h2>Real-Time Samples</h2>
+            <div>
+              <img width="400" height="400" src="img/dashboard.png" alt="ESPN GAMEDAY" style="-webkit-transform: rotate(360deg);float:right;">
+              <img width="400" height="400" src="img/gamecast.png" alt="ESPN GAMEDAY" style="-webkit-transform: rotate(360deg);float:right;">
+            </div>
+						<!-- <a href="#/6/1" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a> -->
+					</section>
+          <section>
+						<h2>Real-Time Samples</h2>
+						<p>
+							Real Time applications <a href="#/6/1">Demos</a>.
+
+						</p>
+            <div>
+              <img width="400" height="400" src="img/wordsquared.png" alt="WordSquared" style="-webkit-transform: rotate(360deg);float:right;">
+              <img width="400" height="400" src="img/browserquest.png" alt="BrowserQuest" style="-webkit-transform: rotate(360deg);float:right;">
+            </div>
+						<!-- <a href="#/6/1" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a> -->
+					</section>
+					<section>
+						<h3><a href='http://wordsquared.com'>http://wordsquared.com</a></h3>
+						<h3><a href='http://typewith.me/p/rootstech2013'>http://typewith.me/p/rootstech2013</a></h3>
+						<h3><a href='http://docs.google.com'>docs.google.com</a></h3>
+						<h3><a href='http://demo.kaazing.com/livefeed/'>http://demo.kaazing.com/livefeed/</a></h3>
+						<h3><a href='http://pusher.com/showcase'>pusher.com</a></h3>
+						<h3><a href='http://sports.espn.go.com/nfl/gamecast'>http://sports.espn.go.com/nfl/gamecast</a></h3>
+						<h3><a href='http://browserquest.mozilla.org'>browserquest.mozilla.org</a></h3>
+					</section>
+          <section>
+            <h3><a href='http://lab.hakim.se/reveal-js/'>These slides (Reveal.js)</a></h3>
+            <h3><a href='http://balloons.io/'>Balloons.io</a></h3>
+          </section>
+        </section>
+
+ 				<section> <h2> Let's Build a Real-Time web app </h2>
+         <section>
+           <ul>
+             <li>Simple Chat with Socket.IO
+               <ul>
+                 <li> create project(e.g http://github.com/thorntonjn/simple_chat.git)</li>
+                 <li> mkdir simple_chat;mkdir simple_chat/bin;cd simple_chat</li>
+                 <li> create package.json </li>
+                 <li> create bin/index.html </li>
+                 <li> create simple_chat.js </li>
+               </ul>
+             </li>
+           </ul>
+         </section>
+ 					<section>
+ 					<ul><li>Client Side</li>
+	 				<li><pre><code contenteditable> 
+$(document).ready(function(){
+  now.receiveMessage = function(name, message){
+    $("#messages").append("
+" + name + ": " + message);
+  }
+  
+  $("#send-button").click(function(){
+    now.distributeMessage($("#text-input").val());
+    $("#text-input").val("");
+  });
+  
+
+  now.name = prompt("What's your name?", "");
+
+});
+ 					</code></pre>
+ 				</li>
+				</ul> 
+			</section>
+ 				
+				<section> 
+ 					<ul><li>Server Side</li>
+	 				<li><pre><code contenteditable> 
+everyone.now.distributeMessage = 
+	function(message) {
+  		everyone.now.receiveMessage(this.now.name, message);
+	};
+ 					</code></pre>
+ 				</li>
+				</ul> 
+ 				</section>
+           <section>
+             <ul>
+               <li> Deploy App </li>
+               <ul>http://deploy.dotcloud.com/Node.js/Socket.IO
+                 <li>sudo easy_install pip && sudo pip install dotcloud</li>
+                 <li>dotcloud setup</li>
+                 <li>dotcloud create {your-app-name}</li>
+                 <li>create dotcloud.yml</li>
+                 <li>dotcloud push</li>
+               </ul>
+               </li>
+             </ul>
+           </section>
+         </section>
+				<section>
+					<h2> Tools For Real-Time Apps</h2>
+					<section>
+					<ul>
+						<li><h3>WebSocket Protocol</h3></li>
+							<ul>
+						<li><h3>Socket.IO / SockJS</h3></li>
+							</ul>
+						<li><h3>Node.js Real-Time Development Frameworks</h3></li>
+							<ul>
+						<li><h3>Now.js </h3></li>
+						<li><h3>Derby.js </h3></li>
+            <li><h3>SocketStream.js </h3></li>
+						<li><h3>Meteor </h3></li>
+					</ul>
+
+					</ul>
+					</section>
+					<section>
+						<h1>SOCKET.IO / SOCKJS</h1>
+						<ul>
+							<li><h3>Implementation of Websocket Protocol</h3></li>
+							<li><h3>Falls back to comet protocols</h3></li>
+							<li><h3>Provides Client and Server Implementations</h3></li>
+						</ul>
+					</section>
+          <section>
+            <h1>Node.js</h1>
+            <ul>
+              <li><h3>Asynchronous Event Driven Request Model</h3></li>
+              <li><h3>Server Side Javascript</h3></li>
+              <li><h3>More Consistent Client-Server Synchronization</h3></li>
+              <li><h3>NPM</h3></li>
+              <li><h3>Easier & Faster Build & Deployment</h3></li>
+            </ul>
+          </section>
+					<section>
+						<h1>Derby.js</h1>
+						<ul> 
+							<li><h3>Full Stack Application Framework</h3></li>
+							<li><h3>Advanced Model Synching and Conflict Resolution With Racer</h3>
+							</li>
+							<li><h3>Integrates With other Frameworks</h3></li>
+							<li><h3>Modularity Provides Flexibility</h3></li>
+						</ul>
+					</section>
+          <section>
+            <h2>Presidents Match - GAME</h2>
+            <div>
+              <img width="214" height="128" src="img/latemple.png" alt="Logan wins temple match" style="-webkit-transform: rotate(360deg);float:right;">
+              <img width="214" height="128" src="img/success.jpg" alt="success" style="-webkit-transform: rotate(360deg);float:right;">
+              <img width="214" height="128" src="img/error.jpeg" alt="error" style="-webkit-transform: rotate(360deg);float:right;">
+            </div>
+            <!-- <a href="#/6/1" class="image">
+                    <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+                  </a> -->
+          </section>
+          <section>
+            <h1>SocketStream</h1>
+            <ul>
+              <li><h3>Simple Modular Framework</h3></li>
+              <li><h3>Dedicated to Real-Time Single-page Apps</h3></li>
+              <li><h3>Designed to Integrate Easily With Other Modules</h3></li>
+            </ul>
+          </section>
+          <section>
+            <h1>Meteor</h1>
+            <ul>
+              <li><h3>Full Stack Application Framework</h3></li>
+              <li><h3>Includes Deployment and Hosting</h3></li>
+              <li><h3>Tightly Integrated - Walled Garden</h3></li>
+              <li><h3>Model synchronization &amp; pub/sub</h3></li>
+              <li><h3>Opinionated</h3></li>
+              <li><h3>Focus on Developer Productivity</h3></li>
+            </ul>
+          </section>
+          <section>
+            <h1>Sails.js</h1>
+            <ul>
+              <li><h3>Brand new</h3></li>
+              <li><h3>Data-driven</h3></li>
+              <li><h3>Patterned after Rails Active Record</h3></li>
+              <li><h3>Provides built-in JSON API without code</h3></li>
+              <li><h3>Automatically sends websocket messages on any change to Model</h3></li>
+              <li><h3>Allows your websocket messages to use same middleware as the rest of you application</h3></li>
+            </ul>
+          </section>
+
+        </section>
+
+				<section>
+					<section>
+					<h2>Coding Example</h2>
+					<ul> 
+						<li><h3>Frameworks and TOOLS</h3></li>
+						<li><h3>Server Code</h3></li>
+						<li><h3>Client Code</h3></li>
+						<li><h3>Testing</h3></li>
+						<li><h3>Build And Deploy</h3></li>
+					</ul>
+					</section>
+					<section>
+						<h3>Hosted Services</h3>
+						<ul>
+							<li><a href="http://pusher.com/">Pusher</a></li>
+							<li><a href="http://pubnub.com/">PubNum</a></li>
+							<li><a href="http://kaazing.com/">Kaazing.com</a></li>
+							<li><a href="http://realtime.co/">Realtime</a></li>
+						</ul>
+            <br><br>
+						<h3>Cloud hosting</h3>
+						<ul>
+							<li><a href="http://nodejitsu.com/">Nodejitsu</a></li>
+							<li><a href="http://nodester.com/">Nodester / AppFog</a></li>
+							<li><a href="http://heroku.com/">heroku.com</a><br>&nbsp;&nbsp;&nbsp;(doesn't support web sockets yet)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Server Code</h2>
+					<pre><code contenteditable>
+function replacemeWithRealCode( selector ) {
+  if( supports3DTransforms ) {
+    
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					</section>
+					<section>
+						<h2>Client Code</h2>
+					<pre><code contenteditable>
+function replacemeWithRealCode( selector ) {
+  if( supports3DTransforms ) {
+    
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>					</section>
+					<section>
+						<h2>Test</h2>
+					<pre><code contenteditable>
+npm install -replace with real commands
+node server.js
+					</code></pre>					</section>
+					<section>
+						<h2>Build and Deploy</h2>
+					<pre><code contenteditable>
+git push heroku replace with real commands 
+
+					</code></pre>					
+				</section>
+				</section>
+				
+				<!-- Example of nested vertical slides -->
+				<section>
+					<h1>Q &amp; A</h1>
+					<br>
+					<br>
+					<br>
+					<h3><a href="http://github.com/redbugz/rootstech2013/">http://github.com/redbugz/rootstech2013/</a></h3>
+					<br>
+					<br>
+					<p>
+						<i>Logan Allred &raquo; <a href="#">allredlt@familysearch.org</a></i>
+					</p>
+					<br>
+					<p>
+						<i>Joel Thornton &raquo; <a href="#">thorntonjn@familysearch.org</a></i>
+					</p>
+				</section>
+
+	<!-- 			<section data-markdown>
+					## Markdown support
+					
+					For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+
+					<pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
+  ## Markdown support
+
+  For those of you who like that sort of thing. 
+  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+&lt;/section&gt;
+					</code></pre>
+				</section> -->
+
+	<!-- 			<section>
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like:
+					</p>
+					<ul>
+						<li><a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a></li>
+						<li><a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a></li>
+						<li><a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a></li>
+						<li><a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a></li>
+					</ul>
+				</section> -->
+
+<!-- 				<section>
+					<section data-state="alert">
+						<h2>Global State</h2>
+						<p>
+							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+							will be added as a class to the document element when the slide is open. This lets you
+							apply broader style changes, like switching the background.
+						</p>
+						<a href="#/7/1" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-state="blackout">
+						<h2>"blackout"</h2>
+						<a href="#/7/2" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-state="soothe">
+						<h2>"soothe"</h2>
+						<a href="#/7/0" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Custom Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						The nice thing about standards is that there are so many to choose from</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would 
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
+					</blockquote>
+				</section>
+				
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+    
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+				
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Fragmented Views</h2>
+					<p>Hit the next arrow...</p>
+					<p class="fragment">... to step through ...</p>
+					<ol>
+						<li class="fragment"><code>any type</code></li>
+						<li class="fragment"><em>of view</em></li>
+						<li class="fragment"><strong>fragments</strong></li>
+					</ol>
+				</section>
+				
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
+						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
+					</a>
+				</section>
+				
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>
+				
+				<section>
+					<h2>Stellar Links</h2>
+					<ul>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on github</a></li>
+						<li><a href="http://hakim.se/projects/reveal-js">Read more on my site</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+					</ul>
+				</section>
+	 -->			
+				<!-- <section>
+					<h1>THE END</h1>
+					<h3>BY Logan Allred/ Joel Thornton</h3>
+				</section> -->
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+      <div id="chat-ticker" class="ticker">
+        <span class="author">Logan &amp; Joel</span>
+        <span class="chat-message">Join the live chat! Your messages will appear here.</span>
+      </div>
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return true || window.location.host === 'localhost:8080'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return true || window.location.host === 'localhost:8080'; } }
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>

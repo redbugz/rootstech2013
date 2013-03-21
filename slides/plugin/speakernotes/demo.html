@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Participant Notes</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="lib/css/chat.css">
+		<style>
+			body {
+				font-family: Helvetica;
+			}
+
+			#notes {
+				font-size: 24px;
+				/*width: 640px;*/
+				margin-top: 5px;
+			}
+
+			#wrap-current-slide {
+				width: 640px;
+				height: 512px;
+				float: left;
+				overflow: hidden;
+			}
+
+			#current-slide {
+				width: 1280px;
+				height: 1024px;
+				border: none;
+				-moz-transform: scale(0.5);
+				-moz-transform-origin: 0 0;
+				-o-transform: scale(0.5);
+				-o-transform-origin: 0 0;
+				-webkit-transform: scale(0.5);
+				-webkit-transform-origin: 0 0;
+			}
+
+			#wrap-next-slide {
+				width: 320px;
+				height: 256px;
+				float: left;
+				margin: 0 0 0 10px;
+				overflow: hidden;
+			}
+
+			#next-slide {
+				width: 1280px;
+				height: 1024px;
+				border: none;
+				-moz-transform: scale(0.25);
+				-moz-transform-origin: 0 0;
+				-o-transform: scale(0.25);
+				-o-transform-origin: 0 0;
+				-webkit-transform: scale(0.25);
+				-webkit-transform-origin: 0 0;
+			}
+
+			.slides {
+				position: relative;
+				margin-bottom: 10px;
+				border: 1px solid black;
+				border-radius: 2px;
+				background: rgb(28, 30, 32);
+			}
+
+			.slides span {
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				font-weight: bold;
+				font-size: 14px;
+				color: rgba( 255, 255, 255, 0.9 );
+			}
+
+			.reveal aside.notes {
+				display:block;
+			}
+
+      #chatlog .me {
+        color: #a9a9a9;
+      }
+      #chatlog .author {
+        margin-right: 5px;
+      }
+      #notes {
+        min-height: 50px;
+      }
+      #graph
+      {
+        position:relative;
+        width:660px;
+        height:216px;
+        margin:8px;
+        padding:0;
+      }
+      #graph ul
+      {
+        position:absolute;
+        top:0;
+        left:32px;
+        width:600px;
+        height:200px;
+        border-left:1px solid black;
+        border-bottom:1px solid black;
+      }
+      #graph li
+      {
+        position:absolute;
+        list-style:none;
+        background:lightblue;
+        width:40px;
+        text-align:center;
+        border:1px solid black;
+        /*visibility: hidden;*/
+      }
+
+      .chart rect {
+        stroke: white;
+        fill: steelblue;
+      }
+		</style>
+	</head>
+
+	<body>
+
+		<!--<div id="wrap-current-slide" class="slides">-->
+			<!--<iframe src="/?receiver" width="1280" height="1024" id="current-slide"></iframe>-->
+		<!--</div>-->
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div id="notes" class="well">&nbsp;</div>
+      <div id="p1" class="chart">&nbsp;</div>
+      <div id="p2" class="chart">&nbsp;</div>
+      <div id="poll" class="well hide1">
+        <div id="graph">
+          200<br /> <br /> <br /> 150 <br /> <br /> <br /> 100 <br /> <br /> <br /> 50
+          <ul>
+            <li>30:2007:lightblue</li>
+            <li>40:2008:lightgreen</li>
+            <li>80:2009:yellow</li>
+            <li>14:2010:cyan</li>
+          </ul>
+          </div>
+        <div id="labels">Years : </div>
+
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h4>Links</h4>
+          <ul>
+            <li><a target="_blank" href="http://192.168.1.101:1337/">Simple Chat (Now.js)</a></li>
+            <li><a target="_blank" href="http://192.168.1.101:8080/play">Play Temple Match Game</a></li>
+            <li><a target="_blank" href="http://192.168.1.101:8080/">Temple Game Dashboard</a></li>
+            <li><a target="_blank" href="http://192.168.1.101:3005/play">Play Temple Match Game</a></li>
+            <li><a target="_blank" href="http://192.168.1.101:3005/">Temple Game Dashboard</a></li>
+          </ul>
+          <ul>
+            <li><a target="_blank" href="http://192.168.1.102:3000/">Balloons.io Chat</a></li>
+            <li><a target="_blank" href="http://192.168.1.102:8000/">CPU Monitor</a></li>
+            <li><a target="_blank" href="http://192.168.1.102:4000/">Ticker</a></li>
+            <li><a target="_blank" href="http://192.168.1.102:6789/">Magnets (Socket.io)</a></li>
+            <li><a target="_blank" href="http://192.168.1.102:6789/">Magnets (Meteor)</a></li>
+          </ul>
+        </div>
+        <div id="wrap-next-slide1" class="chat span6">
+          <form id="demo" onsubmit="return false">
+            <h4>Live Chat</h4>
+            <h5>Share a message with the other participants</h5>
+            <label>Your name: <input id="myName" class="input-small" type="text" autocomplete="off" placeholder="What is your name?" value="Guest"></label>
+            <input id="myMessage" type="text" autocomplete="off" placeholder="What would you like to say?">
+            <button id="sendBtn">Send</button>
+            <div id="chatlog"></div>
+            <!--<div id="connectedCount"><span>0</span> people connected.</div>-->
+          </form>
+
+          <!--<iframe src="/?receiver" width="640" height="512" id="next-slide"></iframe>-->
+          <!--<span>UPCOMING:</span>-->
+        </div>
+      </div>
+    </div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/lib/js/jquery-1.8.2.js"></script>
+		<script src="/plugin/speakernotes/d3.v3/d3.v3.js"></script>
+		<script src="/plugin/speakernotes/poll.js"></script>
+
+		<script>
+		var socketId = '{{participantSocketId}}';
+		var socket = io.connect(window.location.origin);
+		var notes = document.getElementById('notes');
+		var chatlog = document.getElementById('chatlog');
+		var currentSlide = document.getElementById('current-slide');
+		var nextSlide = document.getElementById('next-slide');
+
+    socket.on('slidedata', function(data) {
+      console.log("received slidedata: " + JSON.stringify(data));
+      // ignore data from sockets that aren't ours
+			if (data.socketId !== socketId) { return; }
+
+			notes.innerHTML = data.notes;
+			currentSlide.contentWindow.Reveal.navigateTo(data.indexh, data.indexv);
+			nextSlide.contentWindow.Reveal.navigateTo(data.nextindexh, data.nextindexv);
+		});
+		socket.on('chatmessage', function(data) {
+      console.log("received chatmessage: " + JSON.stringify(data));
+      addChatMessage(data.author, data.message);
+		});
+		socket.on('statusmessage', function(data) {
+      console.log("received statusmessage: " + data);
+      $('<div class="status-message"></div>').text(data.message).appendTo("#chatlog");
+		});
+		socket.on('connectedCount', function(data) {
+      console.log("received connectedCount: " + data);
+      $('#connectedCount span').text(data);
+		});
+		socket.on('welcomemessage', function(data) {
+      console.log("received welcomemessage: " + data);
+			notes.innerHTML = data;
+		});
+    socket.on('pollmessage', function(data) {
+      console.log("received pollmessage: " + data);
+      updatePoll(data);
+    });
+    function updatePoll(data) {
+      for (var i = 0; i < data.questions.length; i++) {
+        var question = data.questions[i];
+        var $poll = $("#poll");
+        var $row = $poll.append("<div class='row'></div>")
+        $row.append("<span class='label'></span>").text(question.label);
+        $row.append("<span class='barchart'></span>").width(data.count * 20);
+      }
+    }
+    function makeGraph(container, labels) {
+      var container = $("#graph");
+      var labels = $("labels");
+      var dnl = container.find("li").each(function(i) {
+        var item = $(this);
+        var value = item.text();
+        var content = value.split(":");
+        value = content[0];
+        item.height(value);
+        item.css({
+          top: (199 - value) + "px",
+          left: (i * 50 + 20) + "px"
+        })
+        item.text(value);
+        var color = content[2];
+        if (color != false) item.css("background", color);
+        labels.append("<span style='margin:8px;background:" + color + "'>" +
+            content[1] + "</span>");
+      });
+    }
+    function addChatMessage(author, message) {
+      var authorInfo = $('<span class="author label label-info"></span>').text(author);
+      var messageInfo = $('<span class="chat-message"></span>').text(message);
+      return $('<div class="chat-message"></div>').hide().append(authorInfo).append(messageInfo).prependTo("#chatlog").slideDown();
+    }
+
+    $(document).ready(function () {
+      $("#sendBtn").click(function () {
+        var message = {
+          message: $("#myMessage").val(),
+          author: $("#myName").val()
+        }
+        console.log("send message: " + JSON.stringify(message));
+        socket.emit("sendChatMessage", message);
+        addChatMessage(message.author, message.message).addClass("me");
+        $("#myMessage").val("");
+      });
+      makeGraph();
+    });
+
+		</script>
+
+	</body>
+</html>
