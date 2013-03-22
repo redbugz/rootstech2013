@@ -225,11 +225,12 @@ io.sockets.on('connection', function (socket) {
 					<h2> Tools </h2>
 					<section>
 					  <ul>
-              <li><h3>WebSocket Protocol</h3></li>
+              <li><h3>WebSocket Protocol + Web Server</h3></li>
                 <ul>
                   <li>Socket.IO / SockJS</li>
+                  <li>Nodejs + Express</li>
                 </ul>
-              <p>&nbsp;</p>
+              <span class="small">&nbsp;</span>
               <li><h3>Node.js Real-Time Development Frameworks</h3></li>
               <ul>
                 <li>shoe / dnode </li>
@@ -243,13 +244,13 @@ io.sockets.on('connection', function (socket) {
 					<section>
 						<h1>Socket.IO / SockJS</h1>
 						<ul class="large">
-							<li>Implementation of WebSocket Protocol</li>
+							<li>Implementation of WebSocket protocol</li>
 							<li>Falls back to Comet protocols</li>
-							<li>Provides Client and Server Implementations</li>
+							<li>Provides client and server implementations</li>
 						</ul>
 					</section>
           <section>
-            <h1>Node.js</h1>
+            <h1>Node.js + Express</h1>
             <ul>
               <li>Asynchronous Event Driven Request Model</li>
               <li>Server Side Javascript</li>
@@ -379,7 +380,181 @@ git push heroku replace with real commands
 					</code></pre>					
 				</section>
 				</section>
-				
+
+                <section>
+                    <section>
+                        <h3>Learn the 44 US Presidents</h3>
+                        <img height="400" src="img/PresidentsGame1.png" alt="Ducksbaord dashboard" >
+                    </section>
+                    <section>
+                        <h3>Frameworks and Tools</h3>
+                        <ul>
+                            <li>NodeJS</li>
+                            <li>Express.io</li>
+                            <li>JQuery</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Server Code</h3>
+                        <ul>Basic NodeJS server
+                            <ul>
+                                <li>basic server</li>
+                                <li>static css and js files</li>
+                                <li>connects up express</li>
+                            </ul>
+                        </ul>
+                        <ul>Express + IO
+                            <ul>
+                                <li>Routes</li>
+                                <li>IO Routes</li>
+                                <li>Model</li>
+                                <li>EJS View Templates</li>
+                            </ul>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Server Code</h2>
+					<pre class="javascript"><code contenteditable>
+    app.io.route('ready', function (req) {
+        req.session.name = req.data;
+        req.session.save(function () {
+        req.io.emit('game-type');
+        })
+    });
+
+    // Send back the session data.
+    app.io.route('game-type', function (req) {
+    req.session.gameType = req.data;
+
+    if (req.session.gameType === "team1-play") {
+        req.io.join("team1-play");
+        req.io.room(req.data).broadcast('announce', {
+        message: 'New client in the ' + req.session.gameType + ' room.'
+    })
+    }
+    ...
+    req.session.save(function () {
+    req.io.emit('session', req.session)
+    })
+    });
+
+                    </code></pre>
+                    </section>
+                    <section>
+                        <h2>Client Code</h2>
+					<pre class="javascript"><code contenteditable>
+        // Listen for update to single president
+    socket.on('update-president', function (presidents) {
+        myGame.updatePresidents(presidents);
+    });
+
+    // Listen for update-collison when someone else beat me to the guess
+    socket.on('president-allready-found', function (president) {
+        myGame.updatePresidents([president], true);
+    });
+
+    var updateServerWithFoundPresident = function(presidentFound) {
+        socket.emit('update-president', presidentFound );
+    }
+
+                    </code></pre>
+                    </section>
+
+                    <section>
+                    <section>
+                        <h2>Deploy To dotCloud</h2>
+					<pre class="javascript"><code contenteditable>
+
+    Create a dotcloud.yml file
+    www:
+    type: nodejs
+    config:
+    node_version: v0.8.x
+
+    Create a supervisorord.conf file
+    [program:node]
+    command = node app.js
+    directory = /home/dotcloud/current
+
+
+                    </code></pre>
+                    </section>
+                    <section>
+                    <section>
+                        <h3>Hosted Services</h3>
+                        <ul>
+                            <li><a href="http://pusher.com/">Pusher</a></li>
+                            <li><a href="http://pubnub.com/">PubNum</a></li>
+                            <li><a href="http://kaazing.com/">Kaazing.com</a></li>
+                            <li><a href="http://realtime.co/">Realtime</a></li>
+                        </ul>
+                        <br><br>
+                        <h3>Cloud hosting</h3>
+                        <ul>
+                            <li><a href="http://nodejitsu.com/">Nodejitsu</a></li>
+                            <li><a href="http://nodester.com/">Nodester / AppFog</a></li>
+                            <li><a href="http://heroku.com/">heroku.com</a><br>&nbsp;&nbsp;&nbsp;(doesn't support web sockets yet)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Server Code</h2>
+					<pre class="javascript"><code contenteditable>
+                        function replacemeWithRealCode( selector ) {
+                        if( supports3DTransforms ) {
+
+                        var nodes = document.querySelectorAll( selector );
+
+                        for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+                        var node = nodes[i];
+
+                        if( !node.className ) ) {
+                        node.className += ' roll';
+                        }
+                        };
+                        }
+                        }
+                    </code></pre>
+                    </section>
+                    <section>
+                        <h2>Client Code</h2>
+					<pre class="javascript"><code contenteditable>
+                        function replacemeWithRealCode( selector ) {
+                        if( supports3DTransforms ) {
+
+                        var nodes = document.querySelectorAll( selector );
+
+                        for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+                        var node = nodes[i];
+
+                        if( !node.className ) ) {
+                        node.className += ' roll';
+                        }
+                        };
+                        }
+                        }
+                    </code></pre>					</section>
+                    <section>
+                        <h2>Test</h2>
+					<pre class="bash"><code contenteditable>
+                        npm install -replace with real commands
+                        node server.js
+                    </code></pre>					</section>
+                    <section>
+                        <h2>Build and Deploy</h2>
+					<pre><code contenteditable>
+                        git push heroku replace with real commands
+
+                    </code></pre>
+                    </section>
+                </section>
+              </section>
+            </section>
+
+
+
+
+
 				<!-- Example of nested vertical slides -->
 				<section>
 					<h1>Q &amp; A</h1>
