@@ -1,0 +1,93 @@
+Preamble
+========
+
+Please read the LICENSE file included with this distribution.
+
+phpmyfamily is intended to allow geographically dispersed family members
+to maintain a central database of research which is readily accessable and editable.
+It allows family members to contribute as and when information becomes available
+without requiring them to send it to a central 'custodian.'  At the same time,
+it allows the general public to view your tree (subject to the restrictions below)
+to see if they match.
+
+Infomation regarding the identities of people born after 01/01/1910 are hidden from
+general browsing but are freely available to 'registered' users.
+
+As well as maintaining links for parents, siblings, spouses and children, there are
+free text capabilities for the recording of anecdotes, information etc, recording of
+census details, capability to upload images and document transcripts.  Please note that
+html tags in the notes field WILL be rendered.
+
+phpmyfamily is NOT intended to provide a 'all the worlds related' database with
+many users working on separate trees aka familyreunited.com.  While there is no
+requirement for individuals in the database to be linked into a central structure,
+all users can see all records etc.
+
+
+Installation
+============
+
+The pre-requisites for installation are
+0. PHP >= 4.2.0
+1. mySQL
+
+0. Uncompress the archive to the directory of your choice.
+1. Move inc/database.inc to inc/database.inc.php and edit it to include your database connection details
+2. Point your browser at admin/install.php.  
+	This will populate your database with the needed tables and install the default user name and password combination (admin/admin).  
+	It is recommended that you change these values as soon as possible.  
+	Additionally, a blank record is created for the first male in your tree.  
+	This will be your starting point and should be edited as soon as possible.  
+	Remember to delete the admin directory after completion of the installation.
+3. Login as admin and go to the preferences page and thence to the admin page where you can enter your site specific configuration details.
+
+Optional Configuration
+======================
+
+The program will work without these configuration steps but with some limitations.
+These options can be controlled via the preferences page.
+
+Apache Configuration
+--------------------
+In order to use the dojo widgets backed with REST web services it is necessary to enable the use of the .htaccess file in the services directory.
+This is down via use of the AllowOverride directive in the Apache configuration
+<Directory /var/www/pmf2>
+                Options FollowSymLinks
+                AllowOverride FileInfo
+        </Directory>
+
+GraphViz Configuration
+----------------------
+GraphViz can be used to render the complete family tree.
+
+To enable the use of graphviz it is necessary to configure php to be allowed to call the external graphviz commands and to install the pear Image_GraphViz package
+
+e.g. on Ubuntu
+pear install Image_GraphViz
+apt-get install graphviz
+
+
+Upgrading
+=========
+
+From v2.0 to v2.1
+-----------------
+
+
+From v1 to v2
+--------------
+Take a database backup - there are significant changes done by these scripts
+Run the admin/upgrade-1.4.2-2.0.0.php script (You can now remove inc/config.inc.php)
+Run the admin/upgrade-2.0.0-beta.php script
+Optionally install dojo version 1.3.0 from dojotoolkit.org - path can be changed in inc/header.inc.php
+	This allows the dojo based tabs and panes layout options to work
+Optionally run the admin/mysql5.php script - this creates a view called person_detail which provides a similiar way of
+looking at the data to the old people table when using SQL directly.
+Optionally run the admin/upgrade-1.4.2-2.0.0-drop.php this removes columns which are no longer used
+
+From v1.2.5 to 1.3.0
+--------------------
+If upgrading to, run the admin/upgrade-1.2.5-1.3.0.php script.  
+This will make the necessary database changes.  
+
+Remember to delete the admin directory after completion of the upgrade.

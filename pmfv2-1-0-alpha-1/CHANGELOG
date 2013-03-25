@@ -1,0 +1,172 @@
+v 2.1.0
+	Introduce graph.php - see INSTALL for setup
+	Name cloud on index page
+	Technical upgrades to use PDO instead of mysql_ and dojo 1.8.1
+	Use remote dojo instead of local
+	Google Analytics as part of config
+	Timeline
+v 2.0.5
+	Swedish translation from Torkel Danielsson
+	Add $strBornAbbrev for b.
+	Italian translation and PDF of descendants from Nino V 
+v 2.0.4
+	Fix a couple of places, upgrade script and census report where family_ was used instead of $tblprefix
+	Add mail configuration for server and recaptcha
+	Remove use of ini_set as it can cause conflicts with server settings
+v 2.0.3
+	Fix to ensure person associated with relationship
+	Fix display of locations when not found and enhance location editor
+	Change to date handling
+	Update dojo version
+	Fix deleting a person
+	Fix error handling in upgrade-1.4.2-2.0.0.php
+	Fix to Event->hasData which means that date unknown events are not shown 
+v 2.0.2
+	Fix install script
+	Fix numerous strict php warnings and switch off strict reporting to screen
+	Fix locations not being saved
+	Numerous gedcom changes thanks to richardbrinegar
+	Add link to export all gedcom
+v 2.0.0
+	Massive refactoring exercise
+		Introduces classes and modules
+		
+	Fix for MySQL 5 (probably still compatible with MySQL 4)
+	Add links to insert father, mother and children from person.php
+	Enable editing of whole household on census edit page
+	Move configuration to database and database.inc.php
+	Editing for image and transcript descriptions
+	Consistent display of names
+	Includes ancestor and descendant trees from Kees
+	RSS feed of 20 latest changes
+	People drop down changed to search box when dojo used
+	Add dissolve date to marriage form
+	Layout configurable via admin page to get dojo panes or tabs
+	Don't show name for restricted people
+	Name now split into 5 fields
+	All places, addresses etc now held in location table
+	Most information now held in the event table (in conjunction with the attendee table)
+	Possible to record information about father at birth and parents at marriage
+	Change mail.php to send from email address in config
+		Stops mail being blocked when server filters send address
+	Add locations page linked from index.php
+		Slow, especially the first time while the latitude and longitude of locations
+		are being looked up
+		Google maps shown if key entered on admin page, otherwise list
+	Various reports on missing info linked from index.php
+	Documents and images directory now configurable (relative paths) and can be placed outside the document root
+	Top 10 most common surnames on front page and counts included on surname index page
+	Images and transcripts linked to events
+	Sources more detailed and separated into a separate table - certification tied to source not event
+	Improved gedcom import
+	Events can be edited directly
+	Multiple notes (as events) possible
+	Significant formatting changes
+-------------------------------------------------------------------------------
+Added Dutch translation (thanks Kees)
+v 1.4.2
+	CRLF Injection vuln patched Bug#1846951
+	XSS vul patched Bug#1846950
+	Character encoding changed to UTF-8 Bug#1436444
+	Czech translation added (Thanks Jan)
+v 1.4.1
+	Fixed SQL Injection vulnerability
+	New ptaff Style added (Thanks Patrice)
+	Revised French translation (Thanks Patrice)
+	Allows deleting of non-existent transcripts
+	Fixed bug #1095669 (Deleting non-existent images)
+	Fixed bug #1102093 (Duplicate translation string)
+	Added Polish translation (Thanks Mateusz)
+	Fixed bug #1100161 (Untranslated phrases)
+	Fixed bug #1104819 (Big Brother Emails)
+	Added Dutch (Belgian) translation (Thanks Dirk)
+	Username added to password recovery email
+	Improvements to installation scripts to avoid warnings
+	Implemented RFE # 1068906 (dynamic date restriction)
+v 1.4.0
+	Per individual export to GEDCOM added
+	Users able to change email addresses
+	Password recovery added
+	Implemented RFE #1065770 (Surname suffix field)
+	Spanish translation added (Thanks Miguel)
+	Better formatting of dates when not known
+	Now possible to "remember me" at login
+	People born after person are no longer shown in dropdown boxes
+	easier email monitoring of people for registered users
+	banner improved and made consistent across pages
+	Addition of email to users
+	Addition of my.php
+	Per user style sheets added, and user choice thereof
+	Fixed username bug in surnames.php
+	French translation added (Thanks Patrice)
+	Norwegian translation added (Thanks P�l)
+	German translation added (Thanks Karsten)
+	Italian translation added (Thanks FaberK)
+	Implemented RFE #973830 (Big Brother emails)
+	Implemented RFE #969325 (Login without edit)
+v 1.3.1
+	Fixed bug #973962
+	Table widths fixed in Konqueror
+v 1.3.0
+	Auto version checking added to admin page
+	SQL optomized
+	Added script execution time (for those that care)
+	First working version of transcript spoofing
+	Nasty fix for imagecreate_wrapper
+	ammendable max and min image size added
+	census summary added
+	mailto form added
+	html headers standardized
+	Random image added to index page
+	Email alerts added for changes
+	Surnames list added
+	Small xhtml changes to ensure tables correctly formed
+	Added Image gallery for all images
+	Fixed badly formed tables for image gallery
+	Better xhtml support
+v 1.2.5
+	Pedigree page added
+	Wrapper around mysql_connect & imagecreatetruecolor
+	GedCom import added (experimental)
+	All fields are now editable
+	Can now delete anything (subject to permission)
+	census re-written to allow multiple countries
+	anniversaries added to index
+	image upload bug fixed
+	footers standardised
+	style sheets made browser aware
+	internationalisation files created
+	converted to xhtml
+v 1.2.4
+	better control over failed uploaded images.
+	styles sheets much cleaned up
+	shortened keywords on index and people to be more "search engine friendly"
+	install.php ammended to correct issue with first image creation and zero-filled db column
+	html cleaned up throughout app
+	session.use_trans_id set to false to help spiders
+	Table prefix made ammendable (default "family")
+	Forbidden page added
+v 1.2.3
+	Added installation instructions.
+	Config files consolidated
+	Proper license information added
+	Tables given "family_" prefix
+	image.php made w3c(HTML 4.01) compliant
+	people.php made w3c(HTML 4.01) compliant (also fixes bug#000001 - html format on weddings)
+	Index.php made w3c(HTML 4.01) compliant
+	Meta tags added to index.php.
+v 1.2.0
+	Index page rearranged to allow login form
+	Support added to passthru.php for login and logout
+	Login form added
+	Links removed to restricted people.
+	Restrictions added to edit, people, image & passthru based on session and person age
+	Added session.inc.php
+	css.inc.php changed to use favicon
+	favicon added to CVS
+v 1.1.2
+	Edit.php changed to use list_enums()
+	Edit.php changed to use listpeeps()
+	Edit.php cleaned up to limit input length on all fields
+v 1.1.1
+	Version control added

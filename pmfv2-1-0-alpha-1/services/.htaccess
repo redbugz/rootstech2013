@@ -1,0 +1,11 @@
+RewriteEngine on
+
+#people/person/?gender=A&date=0&omit=0&name=sm&sort(+foo,-bar)"
+RewriteRule peopleService/person/([0-9]+)$ PeopleQueryReadStore.php?id=$1 [L]
+RewriteRule peopleService/person/$ PeopleQueryReadStore.php [QSA,L]
+
+RewriteRule locationService/location/([0-9]+)$ LocationQueryReadStore.php?id=$1 [L]
+RewriteRule locationService/location/$ LocationQueryReadStore.php [QSA,L]
+
+RewriteRule sourceService/source/([0-9]+)$ SourceQueryReadStore.php?id=$1 [L]
+RewriteRule sourceService/source/$ SourceQueryReadStore.php [QSA,L]
