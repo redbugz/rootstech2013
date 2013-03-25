@@ -235,6 +235,11 @@ body {
 	vertical-align: top;
 }
 
+.reveal .small {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
 .reveal .large {
   font-size: 1.2em;
   line-height: 1.4em;

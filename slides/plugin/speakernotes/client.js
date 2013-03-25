@@ -24,6 +24,7 @@
 
 		var notes = slideElement.querySelector('aside.notes');
 		var slideData = {
+      slideId : slideElement.id,
 			notes : notes ? notes.innerHTML : '',
 			indexh : event.indexh,
 			indexv : event.indexv,
@@ -41,5 +42,12 @@
     var authorspan = '<span class="author">' + data.author + '</span>';
     var messagespan = '<span class="chat-message">' + data.message + '</span>';
     ticker.innerHTML = authorspan + messagespan;
+  });
+  socket.on("pollupdate", function (data) {
+    console.log("client received pollupdate: " + JSON.stringify(data));
+    $("#poll-"+data.pollId+" .poll .bar").each(function(index) {
+      var answer = data.responses[index];
+      $(this).text(answer).width(12 + (answer * 20));
+    });
   });
 }());

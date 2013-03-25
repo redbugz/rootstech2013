@@ -1,3 +1,5 @@
+
+
 function simpleBarChart() {
   var width = 220, // default width
       height = 60, // default height

@@ -17,10 +17,94 @@ console.log("socket setup");
 
 var connectedCount = 0;
 var tickerStarted = false;
+
+var welcomeMessages = [
+  "Welcome to Real Time Web Apps with Node.js",
+  "These are the participant notes. They will allow you to interact during the presentation",
+  "There is live chat below. Join in the conversation!",
+  "We hope you enjoy the presentation"
+];
+var polls = {
+  "nodejs": {
+    question: "Have you used Node.js before",
+    answers: [
+        "What's Node.js?",
+        "I've heard of it",
+        "I've played around with it a little",
+        "I have built and deployed a Node.js application",
+        "I'm a Node Ninja!",
+        "Other"
+    ]
+  },
+  "realtime": {
+    question: "How familiar are you with real-time technologies like WebSockets and Comet?",
+    answers: [
+      "Not much, that's why I'm here",
+      "I've dabbled a bit",
+      "I did some with the older Comet technologies, but I haven't tried WebSockets yet",
+      "I've used Comet or WebSockets in one of my applications",
+      "I'm a WebSocket Wizard!",
+      "Other"
+    ]
+  }
+}
+var currentPoll;
+function startPoll(pollId) {
+  console.log("Starting poll: ", pollId);
+  currentPoll = {
+    pollId: pollId,
+    poll: polls[pollId],
+    responses: [
+      0,0,0,0,0,0
+    ]
+  };
+};
+function Ticker(socket) {
+  var active = true;
+  var tickerSender;
+  var tickerSocket = socket;
+  var curIndex = 0;
+  this.sendTickerEvent = function() {
+    if (!active) {
+      console.log("ticker not active, returning");
+      return;
+    }
+//    console.log("sendTickerEvent socket", socket);
+    var message = welcomeMessages[curIndex];
+    if (tickerSocket) {
+      console.log("sending ticker event to " + socket.id + " with message: " + message);
+      tickerSocket.emit("welcomemessage", message);
+    }
+
+    var timeout = Math.round(Math.random() * 10000);
+    if(timeout < 5000) {
+      timeout += 5000;
+    }
+    curIndex++;
+    curIndex = curIndex % welcomeMessages.length;
+//    console.log('setting timer for next index: ' + curIndex);
+    tickerSender = setTimeout(this.sendTickerEvent, timeout);
+  }
+  this.sendTickerEvent();
+  this.stop = function () {
+    console.log("setting active to false", active);
+    active = false;
+
+  }
+}
 io.sockets.on('connection', function(socket) {
-  console.log("socket connection");
+  console.log("socket connection: ", socket.id);
   connectedCount++;
   socket.broadcast.emit("connectedCount", connectedCount);
+
+  console.log("on connection currentPoll: ", currentPoll);
+  if (currentPoll) {
+    socket.emit("pollcreate", currentPoll);
+  } else {
+    var ticker = new Ticker(socket);
+    console.log("created ticker", ticker);
+  }
+
   socket.on("connect", function() {
     console.log("socket connect");
     connectedCount++;
@@ -34,7 +118,21 @@ io.sockets.on('connection', function(socket) {
   });
 
 	socket.on('slidechanged', function(slideData) {
+    console.log("server changed slides: ", slideData);
+    console.log("ticker", ticker);
+    ticker.stop();
 		socket.broadcast.emit('slidedata', slideData);
+    if (slideData.slideId === "poll-nodejs") {
+      startPoll("nodejs");
+      socket.broadcast.emit("pollcreate", currentPoll);
+      socket.emit("pollupdate", currentPoll);
+    } else if (slideData.slideId === "poll-realtime") {
+      startPoll("realtime");
+      socket.broadcast.emit("pollcreate", currentPoll);
+      socket.emit("pollupdate", currentPoll);
+    } else {
+      currentPoll = null;
+    }
 	});
 
 	socket.on('sendChatMessage', function(chatMessage) {
@@ -42,34 +140,13 @@ io.sockets.on('connection', function(socket) {
 		socket.broadcast.emit('chatmessage', chatMessage);
 	});
 
-  var welcomeMessages = [
-    "Welcome to Real Time Web Apps with Node.js",
-    "These are the participant notes. They will allow you to interact during the presentation",
-    "There is live chat below. Join in the conversation!",
-    "We hope you enjoy the presentation"
-  ];
-  var tickerSender;
-  var socket;
-  var curIndex = 0;
-  function sendTickerEvent() {
-//    console.log("sendTickerEvent socket", socket);
-    var message = welcomeMessages[curIndex];
-    console.log("sending ticker event: " + message);
-    socket.broadcast.emit("welcomemessage", message);
-
-    var timeout = Math.round(Math.random() * 10000);
-    if(timeout < 5000) {
-      timeout += 5000;
-    }
-    curIndex++;
-    curIndex = curIndex % welcomeMessages.length;
-//    console.log('setting timer for next index: ' + curIndex);
-    tickerSender = setTimeout(sendTickerEvent, timeout);
-  }
-  if (!tickerStarted) {
-    sendTickerEvent();
-    tickerStarted = true;
-  }
+	socket.on('pollresponse', function(pollMessage) {
+    console.log("server received pollresponse: " + JSON.stringify(pollMessage));
+    currentPoll.responses[pollMessage.selection]++;
+    // send to sender, then everyone
+		socket.emit('pollupdate', currentPoll);
+		socket.broadcast.emit('pollupdate', currentPoll);
+	});
 });
 
 app.configure(function() {

@@ -122,6 +122,16 @@
         stroke: white;
         fill: steelblue;
       }
+
+      .poll .bar {
+        font: 10px sans-serif;
+        background-color: steelblue;
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+        width: 12px;
+      }
 		</style>
 	</head>
 
@@ -134,6 +144,7 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div id="notes" class="well">&nbsp;</div>
+      <form class="poll"></form>
       <!--<div id="p1" class="chart">&nbsp;</div>-->
       <!--<div id="p2" class="chart">&nbsp;</div>-->
       <!--<div id="poll" class="well hide1">-->
@@ -216,18 +227,37 @@
       console.log("received welcomemessage: " + data);
 			notes.innerHTML = data;
 		});
-    socket.on('pollmessage', function(data) {
-      console.log("received pollmessage: " + data);
+    socket.on('pollcreate', function(data) {
+      console.log("received pollcreate: " + data);
+      createPoll(data);
+    });
+    socket.on('pollupdate', function(data) {
+      console.log("received pollupdate: " + data);
       updatePoll(data);
     });
-    function updatePoll(data) {
-      for (var i = 0; i < data.questions.length; i++) {
-        var question = data.questions[i];
-        var $poll = $("#poll");
-        var $row = $poll.append("<div class='row'></div>")
-        $row.append("<span class='label'></span>").text(question.label);
-        $row.append("<span class='barchart'></span>").width(data.count * 20);
+    function createPoll(data) {
+      $(notes).empty();
+      var $poll = $("<form class='poll'></form>").appendTo(notes);
+      $("<h4></h4>").text(data.poll.question).appendTo($poll);
+      for (var i = 0; i < data.poll.answers.length; i++) {
+        var answer = data.poll.answers[i];
+        var $row = $("<div class='container'></div>").appendTo($poll);
+        $("<label></label>").text(answer).appendTo($row);
+        $("<button class='btn btn-small'>Select</input>").val(i).click(function() {
+          $("button", $poll).replaceWith("<div class='bar'></div>");
+          socket.emit("pollresponse", {
+            selection: $(this).val()
+          });
+        }).appendTo($row);
+        $row.after("<br>");
       }
+    }
+    function updatePoll(data) {
+      console.dir(data);
+      $(".poll .bar").each(function(index) {
+        var answer = data.responses[index];
+        $(this).text(answer).width(12 + (answer * 20));
+      });
     }
     function makeGraph(container, labels) {
       var container = $("#graph");

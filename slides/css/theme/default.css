@@ -166,4 +166,16 @@ body {
 		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 	}
 
+.poll {
+  text-align: left;
+}
 
+.poll .bar {
+  font: 18px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px 0;
+  margin: 1px;
+  color: white;
+  width: 12px;
+}

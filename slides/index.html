@@ -48,9 +48,9 @@
 					<br>
 					<br>
           <!--<h6>Connect your Wifi to &nbsp;<code>&nbsp;realtimerootstech2013 </code> (no password)</h6>-->
-          <h6>Go to
+          <h6>Go to</h6>
             <div><code class="large"><a href="http://rtslides-redbugz.dotcloud.com/demo">http://tinyurl.com/rtslides</a></code></div>
-            on your phone, tablet, or laptop</h6>
+            <h6>on your phone, tablet, or laptop</h6>
 				</section>
 				<section>
 					<h3>Presenters</h3>
@@ -67,7 +67,25 @@
 							<a href="#">thorntonjn@familysearch.org</a></small></i>
 					</p>
 				</section>
-				<section>
+        <section id="poll-nodejs">
+          <h2>Poll</h2>
+          <div class="poll">
+            <h4>Have you used Node.js before?</h4>
+            <p class="small">What's Node.js?</p>
+            <div class="bar">0</div>
+            <p class="small">Heard of it</p>
+            <div class="bar">0</div>
+            <div class="small">Played around with it a little</div>
+            <div class="bar">0</div>
+            <div class="small">Built and deployed a Node.js app</div>
+            <div class="bar">0</div>
+            <div class="small">Node Ninja!</div>
+            <div class="bar">0</div>
+            <div class="small">Other</div>
+            <div class="bar">0</div>
+          </div>
+        </section>
+        <section>
 					<h2>Topics Covered</h2>
 					<ul>
 						<li>What are Real-Time Apps?</li>
@@ -78,7 +96,7 @@
 					</ul>
 				</section>
 
-				<section>
+				<section id="what">
 					<h2>What Are Real-Time Web Applications?</h2>
 					<ul>
 						<li>Persistent Bi-Directional Connection</li>
@@ -88,7 +106,7 @@
 					</ul>
 				</section>
 
-				<section>
+				<section id="cool">
 					<h2>Why is it Cool?</h2>
 					<ul>
 						<li>Live Fresh Data</li>
@@ -115,17 +133,38 @@
             <li>Multiple techniques</li>
             <li>
               <ul>
-                <li>Ajax Push</li>
-                <li>Reverse Ajax</li>
-                <li>Two-way-web</li>
-                <li>HTTP Streaming</li>
-                <li>HTTP server push</li>
-                <li>Long-held HTTP request</li>
-                <li>Long Polling</li>
                 <li>Web Sockets</li>
+                <li>Various fallbacks (sometimes called Comet)<ul>
+                  <li>Ajax Push</li>
+                  <li>Reverse Ajax</li>
+                  <li>Two-way-web</li>
+                  <li>HTTP Streaming</li>
+                  <li>HTTP server push</li>
+                  <li>Long-held HTTP request</li>
+                  <li>Long Polling</li>
+                  </ul>
+                </li>
               </ul>
             </li>
           </ul>
+        </section>
+        <section id="poll-realtime">
+          <h2>Poll</h2>
+          <div class="poll">
+            <h4>Are you familiar with real-time technologies like WebSockets and Comet?</h4>
+            <p class="small">Not much, that's why I'm here</p>
+            <div class="bar">0</div>
+            <p class="small">Dabbled a bit</p>
+            <div class="bar">0</div>
+            <div class="small">Used Comet but not WebSockets</div>
+            <div class="bar">0</div>
+            <div class="small">Used Comet or WebSockets in an application</div>
+            <div class="bar">0</div>
+            <div class="small">WebSockets Wizard</div>
+            <div class="bar">0</div>
+            <div class="small">Other</div>
+            <div class="bar">0</div>
+          </div>
         </section>
 				<section>
 						<h2>Real-Time Samples</h2>
@@ -160,18 +199,10 @@
         </section>
 
  				<section>
-           <h2> Let's Build a Real-Time web app </h2>
+           <h2>Let's add some real-time</h2>
            <section>
              <ul>
-               <li>Simple Chat with Socket.IO
-                 <ul>
-                   <li> create project(e.g http://github.com/thorntonjn/simple_chat.git)</li>
-                   <li> mkdir simple_chat;mkdir simple_chat/bin;cd simple_chat</li>
-                   <li> create package.json </li>
-                   <li> create bin/index.html </li>
-                   <li> create simple_chat.js </li>
-                 </ul>
-               </li>
+               <li>Simple Chat with Socket.IO</li>
              </ul>
            </section>
  					<section>
@@ -299,11 +330,29 @@ io.sockets.on('connection', function (socket) {
               <li>Focus on Developer Productivity</li>
             </ul>
           </section>
-        </section>
-                <section>
+          <section>
+              <h3>Hosted Services</h3>
+              <ul>
+                <li><a href="http://pusher.com/">Pusher</a></li>
+                <li><a href="http://pubnub.com/">PubNum</a></li>
+                <li><a href="http://kaazing.com/">Kaazing</a></li>
+                <li><a href="http://realtime.co/">Realtime</a></li>
+              </ul>
+          </section>
+          <section>
+            <h3>Cloud hosting</h3>
+              <ul>
+                <li><a href="http://nodejitsu.com/">Nodejitsu</a></li>
+                <li><a href="http://appfog.com/">AppFog / Nodester</a></li>
+                <li><a href="http://dotcloud.com/">DotCloud</a></li>
+                <li><a href="http://heroku.com/">heroku.com</a><br>&nbsp;&nbsp;&nbsp;(doesn't support WebSockets yet)</li>
+              </ul>
+          </section>
+          </section>
+            <section>
                     <section>
                         <h3>Learn the 44 US Presidents</h3>
-                        <img height="400" src="img/PresidentsGame1.png" alt="Ducksbaord dashboard" >
+                        <img height="400" src="img/PresidentsGame1.png" alt="Presidents Game" >
                     </section>
                     <section>
                         <h3>Frameworks and Tools</h3>
@@ -376,76 +425,6 @@ io.sockets.on('connection', function (socket) {
                     </code></pre>
                     </section>
 
-                    <section>
-                    <section>
-                        <section>
-                            <h3>Hosted Services</h3>
-                            <ul>
-                                <li><a href="http://pusher.com/">Pusher</a></li>
-                                <li><a href="http://pubnub.com/">PubNum</a></li>
-                                <li><a href="http://kaazing.com/">Kaazing</a></li>
-                                <li><a href="http://realtime.co/">Realtime</a></li>
-                            </ul>
-                            <br><br>
-                            <h3>Cloud hosting</h3>
-                            <ul>
-                                <li><a href="http://nodejitsu.com/">Nodejitsu</a></li>
-                                <li><a href="http://appfog.com/">AppFog / Nodester</a></li>
-                                <li><a href="http://dotcloud.com/">DotCloud</a></li>
-                                <li><a href="http://heroku.com/">heroku.com</a><br>&nbsp;&nbsp;&nbsp;(doesn't support WebSockets yet)</li>
-                            </ul>
-                        </section>
-                    <section>
-                        <h2>Server Code</h2>
-					<pre class="javascript"><code contenteditable>
-                        function replacemeWithRealCode( selector ) {
-                        if( supports3DTransforms ) {
-
-                        var nodes = document.querySelectorAll( selector );
-
-                        for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-                        var node = nodes[i];
-
-                        if( !node.className ) ) {
-                        node.className += ' roll';
-                        }
-                        };
-                        }
-                        }
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h2>Client Code</h2>
-					<pre class="javascript"><code contenteditable>
-                        function replacemeWithRealCode( selector ) {
-                        if( supports3DTransforms ) {
-
-                        var nodes = document.querySelectorAll( selector );
-
-                        for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-                        var node = nodes[i];
-
-                        if( !node.className ) ) {
-                        node.className += ' roll';
-                        }
-                        };
-                        }
-                        }
-                    </code></pre>					</section>
-                    <section>
-                        <h2>Test</h2>
-					<pre class="bash"><code contenteditable>
-                        npm install -replace with real commands
-                        node server.js
-                    </code></pre>					</section>
-                    <section>
-                        <h2>Build and Deploy</h2>
-					<pre><code contenteditable>
-                        git push heroku replace with real commands
-
-                    </code></pre>
-                    </section>
-                </section>
               </section>
             </section>
 
@@ -665,8 +644,9 @@ function linkify( selector ) {
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return true || window.location.host === 'localhost:8080'; } },
-					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return true || window.location.host === 'localhost:8080'; } }
+					{ src: 'lib/js/jquery-1.8.2.js', condition: function() { return true; } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return true; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return true; } }
 				]
 			});
 			
